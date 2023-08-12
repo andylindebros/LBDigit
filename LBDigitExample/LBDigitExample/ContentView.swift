@@ -21,11 +21,14 @@ struct ContentView: View {
             VStack {
                 Spacer()
                 HStack(spacing: 16) {
-                    digits(for: viewModel.hour, in: geo.frame(in: .local))
+                    digits(for: viewModel.hour, withThickness:
+                            geo.frame(in: .local).width * 0.02)
                     dots(in: geo.frame(in: .local))
-                    digits(for: viewModel.minute, in: geo.frame(in: .local))
+                    digits(for: viewModel.minute, withThickness:
+                            geo.frame(in: .local).width * 0.02)
                     dots(in: geo.frame(in: .local))
-                    digits(for: viewModel.second, in: geo.frame(in: .local))
+                    digits(for: viewModel.second, withThickness:
+                            geo.frame(in: .local).width * 0.02)
                 }
                 .frame(height: geo.frame(in: .local).width * 0.25)
                 .padding()
@@ -49,17 +52,17 @@ struct ContentView: View {
         }
     }
 
-    @ViewBuilder func digits(for value: String, in frame: CGRect) -> some View {
+    @ViewBuilder func digits(for value: String, withThickness thickness: CGFloat) -> some View {
         Digit(
             value: Int(value.prefix(1)) ?? 11,
-            thickness: frame.width * 0.02,
+            thickness: thickness,
             distance: distance,
             color: color,
             highligtedColor: highlightedColor
         )
         Digit(
             value: Int(value[1]) ?? 11,
-            thickness: frame.width * 0.02,
+            thickness: thickness,
             distance: distance,
             color: color,
             highligtedColor: highlightedColor
