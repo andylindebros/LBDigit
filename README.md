@@ -24,9 +24,11 @@ struct ContentView: View {
     var body: some View {
         Digit(
             value: 1, // Represents the number that should be presented as a digit
-            thickness: 10,
-            color: Color.gray,
-            highligtedColor: Color.red
+            thickness: 10, // The thickness of the arms, Default is 10.
+            distance: 1, // The distance between the arms. Default is 1
+            color: Color.gray, // The color of the arms
+            highligtedColor: Color.red // the highlighted color of the arms,
+            applyHighlightedShaddow: true // Apply shadows to the hightlighted arms. Default is true
         )
     }
 }

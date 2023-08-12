@@ -5,7 +5,6 @@ struct ContentView: View {
     @ObservedObject var viewModel = ContentViewModel()
     @Environment(\.colorScheme) var colorScheme
 
-    let thickness: CGFloat = 10
     let distance: CGFloat = 1
 
     var color: Color {
