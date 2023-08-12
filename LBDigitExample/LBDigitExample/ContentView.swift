@@ -18,19 +18,17 @@ struct ContentView: View {
 
     var body: some View {
         GeometryReader { geo in
+            let frame = geo.frame(in: .local)
             VStack {
                 Spacer()
                 HStack(spacing: 16) {
-                    digits(for: viewModel.hour, withThickness:
-                            geo.frame(in: .local).width * 0.02)
-                    dots(in: geo.frame(in: .local))
-                    digits(for: viewModel.minute, withThickness:
-                            geo.frame(in: .local).width * 0.02)
-                    dots(in: geo.frame(in: .local))
-                    digits(for: viewModel.second, withThickness:
-                            geo.frame(in: .local).width * 0.02)
+                    digits(for: viewModel.hour, withThickness: frame.width * 0.02)
+                    dots(in: frame)
+                    digits(for: viewModel.minute, withThickness: frame.width * 0.02)
+                    dots(in: frame)
+                    digits(for: viewModel.second, withThickness: frame.width * 0.02)
                 }
-                .frame(height: geo.frame(in: .local).width * 0.25)
+                .frame(height: frame.width * 0.25)
                 .padding()
                 Spacer()
             }
